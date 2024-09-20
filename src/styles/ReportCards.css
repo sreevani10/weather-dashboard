@@ -1,0 +1,24 @@
+
+.box {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap:10px;    
+    
+    
+  }
+  .text-value{
+    margin-top:1.5%;
+    
+  }
+  .name , .value{
+    font-size: 80%;
+    margin:0px;
+  }
+.value{
+    font-weight: bold;
+}
+.icon{
+    
+    color:rgb(118, 157, 249);
+}
