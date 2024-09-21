@@ -11,30 +11,37 @@ import { format } from "date-fns";
 function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [error, setError] = useState(null);
+  const [location, setLocation] = useState({
+    latitude: 12.9719,
+    longitude: 77.5937,
+  });
+  const [address, setAddress] = useState("Bengaluru, Karnataka, India");
 
   useEffect(() => {
-    const options = { method: "GET", headers: { accept: "application/json" } };
+    const options = {
+      method: "GET",
+      headers: { accept: "application/json" },
+    };
 
-    // Fetching weather data
-    fetch(
-      "https://api.open-meteo.com/v1/forecast?latitude=12.9719&longitude=77.5937&current=temperature_2m,relative_humidity_2m&daily=temperature_2m_max,sunrise,sunset,uv_index_max&timezone=auto&forecast_days=7",
-      options
-    )
+    let url = `https://api.open-meteo.com/v1/forecast?latitude=${location?.latitude}&longitude=${location?.longitude}&current=temperature_2m,relative_humidity_2m,weather_code&daily=temperature_2m_max,sunrise,sunset,uv_index_max,weather_code&timezone=auto&forecast_days=7`;
+    fetch(url, options)
       .then((response) => response.json())
       .then((data) => {
         setWeatherData(data);
       })
       .catch((err) => {
-        // Set the error to state if there is an error
         setError(err);
         console.error(err);
       });
-  }, []);
+  }, [location]);
 
   return (
     <div className="app">
-      <Navbar />
-      <Header temperature={weatherData?.current.temperature_2m} />
+      <Navbar setLocation={setLocation} setAddress={setAddress} />
+      <Header
+        temperature={weatherData?.current.temperature_2m}
+        address={address}
+      />
       <div className="main-section">
         <div className="left-side">
           <WeatherReport
@@ -55,12 +62,11 @@ function App() {
         </div>
         <div className="right-side">
           <WeeklyForecast
-            dates={
-              weatherData?.daily.time     
-            }
+            dates={weatherData?.daily.time}
             dayTemp={weatherData?.daily.temperature_2m_max}
+            season={weatherData?.daily.weather_code}
           />
-          <HourlyForecast />
+          <HourlyForecast location={location} />
         </div>
       </div>
     </div>

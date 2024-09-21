@@ -7,15 +7,15 @@ import { PiCloudLightningBold } from "react-icons/pi";
 import "../styles/Forecast.css";
 import { format } from "date-fns";
 
-const WeeklyForecast = ({ dates, dayTemp }) => {
-  console.log(dates);
+const WeeklyForecast = ({ dates, dayTemp, season }) => {
+  // console.log(dates);
   return (
     <div className="forecast">
       {dates?.map((item, index) => (
         <Forecast
           key={index}
           title={item ? format(new Date(item), "EEE") : "N/A"}
-          season={<GoSun />}
+          season={index}
           temperature={dayTemp ? dayTemp[index] : "N/A"}
         />
       ))}

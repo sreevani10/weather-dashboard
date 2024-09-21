@@ -8,7 +8,7 @@ import "../styles/Forecast.css";
 import { useEffect, useState } from "react";
 import { format } from "date-fns";
 
-const HourlyForecast = () => {
+const HourlyForecast = ({ location }) => {
   const [hourlyForecastData, setHourlyForecastData] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -16,7 +16,7 @@ const HourlyForecast = () => {
     const options = { method: "GET", headers: { accept: "application/json" } };
 
     fetch(
-      "https://api.open-meteo.com/v1/forecast?latitude=12.9719&longitude=77.5937&hourly=temperature&timezone=auto&forecast_days=1",
+      `https://api.open-meteo.com/v1/forecast?latitude=${location?.latitude}&longitude=${location?.longitude}&hourly=temperature,weather_code&timezone=auto&forecast_days=1`,
       options
     )
       .then((response) => response.json())
@@ -27,7 +27,7 @@ const HourlyForecast = () => {
         setErrorMessage(err);
         console.error(err);
       });
-  }, []);
+  }, [location]);
 
   return (
     <div className="hourlyforecast">
