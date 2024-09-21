@@ -5,16 +5,16 @@ import { TbUvIndex } from "react-icons/tb";
 import { FiSunrise } from "react-icons/fi";
 import '../styles/WeatherReport.css'
 
-const WeatherReport = () =>{
+const WeatherReport = ({humidity,sunset,uvindex,sunrise}) =>{
     return(
         <div className="report" >
             <div className="layout">
-                <ReportCards icon={<WiHumidity/>} name="Humidity" value="40"/>
-                <ReportCards icon={<FiSunset />} name="Sunset" value="7.50 pm"/>
+                <ReportCards icon={<WiHumidity/>} name="Humidity" value={humidity}/>
+                <ReportCards icon={<FiSunset />} name="Sunset" value={sunset}/>
             </div>
             <div className="layout">
-                <ReportCards icon={<TbUvIndex />} name="UV Index" value="o of 10"/>
-                <ReportCards icon={<FiSunrise />} name="Sunrise" value="6.35 pm"/>
+                <ReportCards icon={<TbUvIndex />} name="UV Index" value={uvindex}/>
+                <ReportCards icon={<FiSunrise />} name="Sunrise" value={sunrise}/>
             </div>
             
         </div>

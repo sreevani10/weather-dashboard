@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import "../styles/Header.css";
 import { BsSunFill } from "react-icons/bs";
 
-
-const Header = () => {
+const Header = ({ temperature }) => {
+  
   const [date, setDate] = useState(new Date());
 
   useEffect(() => {
@@ -16,11 +16,11 @@ const Header = () => {
 
   return (
     <div className="card">
-      
       <div className="location">
-        <BsSunFill className="icon"/>
+        <BsSunFill className="icon" />
         <h4 className="temp">
-          13<sup>o</sup>
+          {temperature}
+          <sup>o</sup>
         </h4>
         <h5 className="loc">Bengaluru,Karnataka</h5>
       </div>
