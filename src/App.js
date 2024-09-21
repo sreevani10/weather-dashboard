@@ -18,6 +18,7 @@ function App() {
         </div>
         <div className="right-side">
           <WeeklyForecast />
+          <HourlyForecast />
         </div>
       </div>
     </div>
