@@ -1,18 +1,25 @@
 import "./App.css";
-import Forecast from "./components/Forecast";
+import WeeklyForecast from "./components/WeeklyForecast";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import RainfallReport from "./components/RainfallReport";
 import WeatherReport from "./components/WeatherReport";
+import HourlyForecast from "./components/HourlyForecast";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <Navbar />
       <Header />
-      <WeatherReport />
-      <RainfallReport/>
-      <Forecast />
+      <div className="main-section">
+        <div className="left-side">
+          <WeatherReport />
+          <RainfallReport />
+        </div>
+        <div className="right-side">
+          <WeeklyForecast />
+        </div>
+      </div>
     </div>
   );
 }
