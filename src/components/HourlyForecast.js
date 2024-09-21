@@ -5,21 +5,39 @@ import { CiCloud } from "react-icons/ci";
 import { CiCloudDrizzle } from "react-icons/ci";
 import { PiCloudLightningBold } from "react-icons/pi";
 import "../styles/Forecast.css";
+import { useEffect, useState } from "react";
 
 const HourlyForecast = () => {
+  const [hourlyForecastData, setHourlyForecastData] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  useEffect(() => {
+    const options = { method: "GET", headers: { accept: "application/json" } };
+
+    fetch(
+      "https://api.open-meteo.com/v1/forecast?latitude=12.9719&longitude=77.5937&hourly=temperature&timezone=Asia%2FTokyo&forecast_days=1",
+      options
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setHourlyForecastData(data);
+      })
+      .catch((err) => {
+        setErrorMessage(err);
+        console.error(err);
+      });
+  }, []);
+
   return (
     <div className="forecast">
-      <Forecast title={"01 am"} season={<GoSun />} temperature={10} />
-      <Forecast title={"04 am"} season={<MdAir />} temperature={10} />
-      <Forecast title={"07 am"} season={<CiCloud />} temperature={10} />
-      <Forecast
-        title={"01 pm"}
-        season={<PiCloudLightningBold />}
-        temperature={10}
-      />
-      <Forecast title={"04 pm"} season={<CiCloudDrizzle />} temperature={10} />
-      <Forecast title={"07 pm"} season={<CiCloud />} temperature={10} />
-      <Forecast title={"10 pm"} season={<GoSun />} temperature={10} />
+      {hourlyForecastData?.hourly.time.map((item, index) => (
+        <Forecast
+          title={item}
+          season={<GoSun />}
+          temperature={hourlyForecastData.hourly.temperature[index]}
+        />
+      ))}
     </div>
   );
 };
