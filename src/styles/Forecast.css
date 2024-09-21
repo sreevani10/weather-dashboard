@@ -2,3 +2,7 @@
     display: flex;
     gap:20px;
 }
+
+.season{
+    color: rgb(118, 157, 249);
+}
