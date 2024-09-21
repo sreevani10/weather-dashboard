@@ -1,31 +1,29 @@
-
-.card{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin:50px 150px;
-    
-    
+.card {
+  background-image: url("../../public/assets/wallpaper-image.png");
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 50px 150px;
+  height: 40vh;
 }
-.dateTime ,.location{
-    font-weight: 500;
-    color: rgb(118, 157, 249);
-    margin-top:2%;
-    
-  }
-  .time ,.date , .temp,.loc{
-    margin: 0%;
-  }
- .temp{
+.dateTime,
+.location {
+  position: relative;
+  font-weight: 500;
+  color: white;
+  margin-top: 2%;
+}
+.time,
+.date,
+.temp,
+.loc {
+  margin: 0%;
+}
+.temp {
   font-size: 300%;
   font-weight: 400;
- }
- .icon{
-   font-size: 150%;;
- }
-  
-  
-
-
-
-
+}
+.icon {
+  font-size: 150%;
+}

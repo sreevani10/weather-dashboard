@@ -16,6 +16,7 @@ const Header = () => {
 
   return (
     <div className="card">
+      
       <div className="location">
         <BsSunFill className="icon"/>
         <h4 className="temp">
