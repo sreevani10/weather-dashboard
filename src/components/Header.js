@@ -3,7 +3,6 @@ import "../styles/Header.css";
 import { BsSunFill } from "react-icons/bs";
 
 const Header = ({ temperature }) => {
-  
   const [date, setDate] = useState(new Date());
 
   useEffect(() => {
@@ -17,12 +16,12 @@ const Header = ({ temperature }) => {
   return (
     <div className="card">
       <div className="location">
-        <BsSunFill className="icon" />
-        <h4 className="temp">
+        <BsSunFill className="header-temp-icon" />
+        <span className="temp">
           {temperature}
           <sup>o</sup>
-        </h4>
-        <h5 className="loc">Bengaluru,Karnataka</h5>
+        </span>
+        <span className="loc">Bengaluru,Karnataka</span>
       </div>
       <div className="dateTime">
         <p className="time">{date.toLocaleTimeString()} </p>

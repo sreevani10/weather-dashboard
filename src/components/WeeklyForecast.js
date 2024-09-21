@@ -5,46 +5,20 @@ import { CiCloud } from "react-icons/ci";
 import { CiCloudDrizzle } from "react-icons/ci";
 import { PiCloudLightningBold } from "react-icons/pi";
 import "../styles/Forecast.css";
+import { format } from "date-fns";
 
 const WeeklyForecast = ({ dates, dayTemp }) => {
-  
+  console.log(dates);
   return (
     <div className="forecast">
-      <Forecast
-        title={dates ? dates[0] : "Mon"}
-        season={<GoSun />}
-        temperature={dayTemp ? dayTemp[0] : ""}
-      />
-      <Forecast
-        title={dates ? dates[1] : "Tue"}
-        season={<MdAir />}
-        temperature={dayTemp ? dayTemp[1] : ""}
-      />
-      <Forecast
-        title={dates ? dates[2] : "Wed"}
-        season={<CiCloud />}
-        temperature={dayTemp ? dayTemp[2] : ""}
-      />
-      <Forecast
-        title={dates ? dates[3] : "Thu"}
-        season={<PiCloudLightningBold />}
-        temperature={dayTemp ? dayTemp[3] : ""}
-      />
-      <Forecast
-        title={dates ? dates[4] : "Fri"}
-        season={<CiCloudDrizzle />}
-        temperature={dayTemp ? dayTemp[4] : ""}
-      />
-      <Forecast
-        title={dates ? dates[5] : "Sat"}
-        season={<CiCloud />}
-        temperature={dayTemp ? dayTemp[6] : ""}
-      />
-      <Forecast
-        title={dates ? dates[6] : "Sun"}
-        season={<GoSun />}
-        temperature={dayTemp ? dayTemp[7] : ""}
-      />
+      {dates?.map((item, index) => (
+        <Forecast
+          key={index}
+          title={item ? format(new Date(item), "EEE") : "N/A"}
+          season={<GoSun />}
+          temperature={dayTemp ? dayTemp[index] : "N/A"}
+        />
+      ))}
     </div>
   );
 };

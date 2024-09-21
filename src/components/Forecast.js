@@ -1,12 +1,12 @@
 const Forecast = ({ title, season, temperature }) => {
   return (
     <div className="forecast-report">
-      <p>{title}</p>
-      <p className="season">{season}</p>
-      <p>
+      <span>{title}</span>
+      <span className="season">{season}</span>
+      <span>
         {temperature}
         <sup>o</sup>
-      </p>
+      </span>
     </div>
   );
 };

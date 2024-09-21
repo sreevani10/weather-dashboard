@@ -6,23 +6,22 @@ import RainfallReport from "./components/RainfallReport";
 import WeatherReport from "./components/WeatherReport";
 import HourlyForecast from "./components/HourlyForecast";
 import { useState, useEffect } from "react";
+import { format } from "date-fns";
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-  
     const options = { method: "GET", headers: { accept: "application/json" } };
 
     // Fetching weather data
     fetch(
-      "https://api.open-meteo.com/v1/forecast?latitude=12.9719&longitude=77.5937&current=temperature_2m,relative_humidity_2m&daily=temperature_2m_max,sunrise,sunset,uv_index_max&timezone=Asia%2FTokyo&past_days=1",
+      "https://api.open-meteo.com/v1/forecast?latitude=12.9719&longitude=77.5937&current=temperature_2m,relative_humidity_2m&daily=temperature_2m_max,sunrise,sunset,uv_index_max&timezone=auto&forecast_days=7",
       options
     )
       .then((response) => response.json())
       .then((data) => {
-
         setWeatherData(data);
       })
       .catch((err) => {
@@ -40,14 +39,27 @@ function App() {
         <div className="left-side">
           <WeatherReport
             humidity={weatherData?.current.relative_humidity_2m}
-            sunset={weatherData?.daily.sunset}
-            uvindex={weatherData?.daily.uv_index_max}
-            sunrise={weatherData?.daily.sunrise}
+            sunset={
+              weatherData?.daily.sunset[0]
+                ? format(new Date(weatherData.daily.sunset[0]), "kk:mm a")
+                : "N/A"
+            }
+            uvindex={weatherData?.daily.uv_index_max[0]}
+            sunrise={
+              weatherData?.daily.sunrise[0]
+                ? format(new Date(weatherData.daily.sunrise[0]), "kk:mm a")
+                : "N/A"
+            }
           />
           <RainfallReport />
         </div>
         <div className="right-side">
-          <WeeklyForecast dates={weatherData?.daily.time} dayTemp={weatherData?.daily.temperature_2m_max} />
+          <WeeklyForecast
+            dates={
+              weatherData?.daily.time     
+            }
+            dayTemp={weatherData?.daily.temperature_2m_max}
+          />
           <HourlyForecast />
         </div>
       </div>

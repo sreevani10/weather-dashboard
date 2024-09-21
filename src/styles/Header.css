@@ -1,18 +1,22 @@
 .card {
-  background-image: url("../../public/assets/wallpaper-image.png");
+  background-image: url("../../public/assets/images.jpg");
   background-size: cover;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 50px 150px;
-  height: 40vh;
+  margin: 20px 100px;
+  height: 30vh;
 }
 .dateTime,
 .location {
   position: relative;
   font-weight: 500;
   color: white;
-  margin-top: 2%;
+  margin-top: 55px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  align-self: end;
 }
 .time,
 .date,
@@ -21,9 +25,12 @@
   margin: 0%;
 }
 .temp {
-  font-size: 300%;
+  font-size: 50px;
+  max-height: 70px;
   font-weight: 400;
 }
-.icon {
-  font-size: 150%;
+
+.header-temp-icon {
+  width: 40px;
+  height: 40px;
 }

@@ -1,8 +1,20 @@
-.forecast{
-    display: flex;
-    gap:20px;
+.forecast {
+  display: flex;
+  gap: 20px;
 }
 
-.season{
-    color: rgb(118, 157, 249);
+.season {
+  color: rgb(118, 157, 249);
+  margin-top: 8px;
+}
+.hourlyforecast {
+  display: flex;
+  gap: 20px;
+  max-width: 500px;
+  overflow-x: scroll;
+}
+
+.forecast-report {
+  display: flex;
+  flex-direction: column;
 }

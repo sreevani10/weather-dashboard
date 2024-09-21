@@ -6,6 +6,7 @@ import { CiCloudDrizzle } from "react-icons/ci";
 import { PiCloudLightningBold } from "react-icons/pi";
 import "../styles/Forecast.css";
 import { useEffect, useState } from "react";
+import { format } from "date-fns";
 
 const HourlyForecast = () => {
   const [hourlyForecastData, setHourlyForecastData] = useState(null);
@@ -15,12 +16,11 @@ const HourlyForecast = () => {
     const options = { method: "GET", headers: { accept: "application/json" } };
 
     fetch(
-      "https://api.open-meteo.com/v1/forecast?latitude=12.9719&longitude=77.5937&hourly=temperature&timezone=Asia%2FTokyo&forecast_days=1",
+      "https://api.open-meteo.com/v1/forecast?latitude=12.9719&longitude=77.5937&hourly=temperature&timezone=auto&forecast_days=1",
       options
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setHourlyForecastData(data);
       })
       .catch((err) => {
@@ -30,10 +30,10 @@ const HourlyForecast = () => {
   }, []);
 
   return (
-    <div className="forecast">
+    <div className="hourlyforecast">
       {hourlyForecastData?.hourly.time.map((item, index) => (
         <Forecast
-          title={item}
+          title={item ? format(new Date(item), "kk:mm") : "N/A"}
           season={<GoSun />}
           temperature={hourlyForecastData.hourly.temperature[index]}
         />
