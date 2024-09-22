@@ -61,4 +61,4 @@ https://docs.google.com/document/d/1LQ98vjpN90N2potoNsV9oxpxbZ3_OqNt/edit?usp=sh
 
 ## Video
 
-[![Watch the video]](https://github.com/sreevani10/weather-dashboard/blob/main/public/screenshots/WeatherDashboardVideo.mp4)
+[![Watch the video](https://github.com/sreevani10/weather-dashboard/blob/main/public/screenshots/WeatherDashboard_HomeScreen.png)](https://github.com/sreevani10/weather-dashboard/blob/main/public/screenshots/WeatherDashboardVideo.mp4)
