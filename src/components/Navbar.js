@@ -1,6 +1,6 @@
-import "../styles/Navbar.css";
 import { SearchBox } from "@mapbox/search-js-react";
 import { useState } from "react";
+import "../styles/Navbar.css";
 
 const Navbar = ({ setLocation, setAddress }) => {
   const [inputValue, setInputValue] = useState("");
@@ -9,7 +9,7 @@ const Navbar = ({ setLocation, setAddress }) => {
     setInputValue(input);
   };
 
-  const handleRetrive = (input) => {
+  const handleRetrieve = (input) => {
     setLocation(input?.features[0].properties?.coordinates);
     setAddress(input?.features[0].properties?.full_address);
   };
@@ -26,7 +26,7 @@ const Navbar = ({ setLocation, setAddress }) => {
           handleChange(d);
         }}
         onRetrieve={(res) => {
-          handleRetrive(res);
+          handleRetrieve(res);
         }}
       />
     </div>

@@ -1,11 +1,10 @@
 import Forecast from "./Forecast";
-import "../styles/Forecast.css";
 import { useEffect, useState } from "react";
 import { format } from "date-fns";
+import "../styles/Forecast.css";
 
 const HourlyForecast = ({ location }) => {
   const [hourlyForecastData, setHourlyForecastData] = useState(null);
-  const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
     const options = { method: "GET", headers: { accept: "application/json" } };
@@ -20,24 +19,24 @@ const HourlyForecast = ({ location }) => {
         setHourlyForecastData(data);
       })
       .catch((err) => {
-        setErrorMessage(err);
         console.error(err);
       });
   }, [location]);
 
   return (
     <div>
-      <p className="names">Hourly Forecast</p>
-    
-    <div className="hourlyforecast">
-      {hourlyForecastData?.hourly.time.map((item, index, season) => (
-        <Forecast
-          title={item ? format(new Date(item), "kk:mm") : "N/A"}
-          season={hourlyForecastData.hourly.weather_code[index]}
-          temperature={hourlyForecastData.hourly.temperature[index]}
-        />
-      ))}
-    </div>
+      <p className="heading">Hourly Forecast</p>
+
+      <div className="hourly-forecast">
+        {hourlyForecastData?.hourly.time.map((item, index) => (
+          <Forecast
+            key={index}
+            title={item ? format(new Date(item), "kk:mm") : "N/A"}
+            season={hourlyForecastData.hourly.weather_code[index]}
+            temperature={hourlyForecastData.hourly.temperature[index]}
+          />
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,8 +1,7 @@
 import ReportCards from "./ReportCards";
 import { WiHumidity } from "react-icons/wi";
-import { FiSunset } from "react-icons/fi";
+import { FiSunset,FiSunrise } from "react-icons/fi";
 import { TbUvIndex } from "react-icons/tb";
-import { FiSunrise } from "react-icons/fi";
 import "../styles/WeatherReport.css";
 
 const WeatherReport = ({ humidity, sunset, uvindex, sunrise }) => {

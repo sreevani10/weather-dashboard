@@ -1,4 +1,3 @@
-import "./App.css";
 import WeeklyForecast from "./components/WeeklyForecast";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
@@ -7,10 +6,10 @@ import WeatherReport from "./components/WeatherReport";
 import HourlyForecast from "./components/HourlyForecast";
 import { useState, useEffect } from "react";
 import { format } from "date-fns";
+import "./App.css";
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
-  const [error, setError] = useState(null);
   const [location, setLocation] = useState({
     latitude: 12.9719,
     longitude: 77.5937,
@@ -30,7 +29,6 @@ function App() {
         setWeatherData(data);
       })
       .catch((err) => {
-        setError(err);
         console.error(err);
       });
   }, [location]);
