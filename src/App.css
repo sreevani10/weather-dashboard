@@ -30,4 +30,11 @@
   align-self: start;
   margin-left: 20px;
   cursor: pointer;
+  font-weight: 400;
+  margin-right: 20px;
+  padding: 4px 6px 0px 6px;
+  display: flex;
+  gap: 4px;
+  height: 30px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }

@@ -66,10 +66,11 @@ function App() {
         <div className="right-side">
           <div className="conditions">
             <span onClick={() => handleCondition("temperature")}>
-              .Temperature
+              Temperature
             </span>
+            <span>|</span>
             <span onClick={() => handleCondition("precipitation")}>
-              .Precipitation
+              Precipitation
             </span>
           </div>
 
