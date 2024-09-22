@@ -53,4 +53,4 @@ This Weather application allows users to view current weather conditions, weekly
 
 # Video
 
-![Watch the video](https://github.com/sreevani10/weather-dashboard/blob/main/public/screenshots/WeatherDashboardVideo.mp4)
+[![Watch the video](https://github.com/sreevani10/weather-dashboard/blob/main/public/screenshots/WeatherDashboardVideo.mp4)]
