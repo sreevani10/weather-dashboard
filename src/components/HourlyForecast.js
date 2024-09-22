@@ -3,19 +3,18 @@ import { useEffect, useState } from "react";
 import { format } from "date-fns";
 import "../styles/Forecast.css";
 
-const HourlyForecast = ({ location }) => {
+const HourlyForecast = ({ location, condition }) => {
   const [hourlyForecastData, setHourlyForecastData] = useState(null);
 
   useEffect(() => {
     const options = { method: "GET", headers: { accept: "application/json" } };
 
     fetch(
-      `https://api.open-meteo.com/v1/forecast?latitude=${location?.latitude}&longitude=${location?.longitude}&hourly=temperature,weather_code&timezone=auto&forecast_days=1`,
+      `https://api.open-meteo.com/v1/forecast?latitude=${location?.latitude}&longitude=${location?.longitude}&hourly=precipitation_probability,temperature,weather_code&timezone=auto&forecast_days=1`,
       options
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setHourlyForecastData(data);
       })
       .catch((err) => {
@@ -34,6 +33,8 @@ const HourlyForecast = ({ location }) => {
             title={item ? format(new Date(item), "kk:mm") : "N/A"}
             season={hourlyForecastData.hourly.weather_code[index]}
             temperature={hourlyForecastData.hourly.temperature[index]}
+            precipitation={hourlyForecastData.hourly.precipitation_probability[index]}
+            condition={condition}
           />
         ))}
       </div>

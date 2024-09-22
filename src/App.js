@@ -15,6 +15,11 @@ function App() {
     longitude: 77.5937,
   });
   const [address, setAddress] = useState("Bengaluru, Karnataka, India");
+  const [condition, setCondition] = useState("temperature");
+
+  const handleCondition = (newCondition) => {
+    setCondition(newCondition);
+  };
 
   useEffect(() => {
     const options = {
@@ -22,7 +27,7 @@ function App() {
       headers: { accept: "application/json" },
     };
 
-    let url = `https://api.open-meteo.com/v1/forecast?latitude=${location?.latitude}&longitude=${location?.longitude}&current=temperature_2m,relative_humidity_2m,weather_code&daily=temperature_2m_max,sunrise,sunset,uv_index_max,weather_code&timezone=auto&forecast_days=7`;
+    let url = `https://api.open-meteo.com/v1/forecast?latitude=${location?.latitude}&longitude=${location?.longitude}&current=temperature_2m,relative_humidity_2m,weather_code&daily=precipitation_probability_max,temperature_2m_max,sunrise,sunset,uv_index_max,weather_code&timezone=auto&forecast_days=7`;
     fetch(url, options)
       .then((response) => response.json())
       .then((data) => {
@@ -59,12 +64,23 @@ function App() {
           <RainfallReport />
         </div>
         <div className="right-side">
+          <div className="conditions">
+            <span onClick={() => handleCondition("temperature")}>
+              .Temperature
+            </span>
+            <span onClick={() => handleCondition("precipitation")}>
+              .Precipitation
+            </span>
+          </div>
+
           <WeeklyForecast
+            condition={condition}
             dates={weatherData?.daily.time}
             dayTemp={weatherData?.daily.temperature_2m_max}
+            dayPrecp={weatherData?.daily.precipitation_probability_max}
             season={weatherData?.daily.weather_code}
           />
-          <HourlyForecast location={location} />
+          <HourlyForecast location={location} condition={condition} />
         </div>
       </div>
     </div>
