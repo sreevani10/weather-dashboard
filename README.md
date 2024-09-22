@@ -51,6 +51,14 @@ This Weather application allows users to view current weather conditions, weekly
 <br/>
 ![alt text](https://github.com/sreevani10/weather-dashboard/blob/main/public/screenshots/WeatherDashboard_SearchLocationScreen.png)
 
-# Video
+## Wireframe
 
-[![Watch the video](https://github.com/sreevani10/weather-dashboard/blob/main/public/screenshots/WeatherDashboardVideo.mp4)]
+![alt text](https://github.com/sreevani10/weather-dashboard/blob/main/public/screenshots/WeatherDashboard_Wireframe.png)
+
+## Documentation
+
+https://docs.google.com/document/d/1LQ98vjpN90N2potoNsV9oxpxbZ3_OqNt/edit?usp=sharing&ouid=116454676212149963365&rtpof=true&sd=true
+
+## Video
+
+[![Watch the video]](https://github.com/sreevani10/weather-dashboard/blob/main/public/screenshots/WeatherDashboardVideo.mp4)
