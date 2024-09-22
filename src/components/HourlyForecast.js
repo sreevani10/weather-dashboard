@@ -1,9 +1,4 @@
 import Forecast from "./Forecast";
-import { GoSun } from "react-icons/go";
-import { MdAir } from "react-icons/md";
-import { CiCloud } from "react-icons/ci";
-import { CiCloudDrizzle } from "react-icons/ci";
-import { PiCloudLightningBold } from "react-icons/pi";
 import "../styles/Forecast.css";
 import { useEffect, useState } from "react";
 import { format } from "date-fns";
@@ -21,6 +16,7 @@ const HourlyForecast = ({ location }) => {
     )
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         setHourlyForecastData(data);
       })
       .catch((err) => {
@@ -30,14 +26,18 @@ const HourlyForecast = ({ location }) => {
   }, [location]);
 
   return (
+    <div>
+      <p className="names">Hourly Forecast</p>
+    
     <div className="hourlyforecast">
-      {hourlyForecastData?.hourly.time.map((item, index) => (
+      {hourlyForecastData?.hourly.time.map((item, index, season) => (
         <Forecast
           title={item ? format(new Date(item), "kk:mm") : "N/A"}
-          season={<GoSun />}
+          season={hourlyForecastData.hourly.weather_code[index]}
           temperature={hourlyForecastData.hourly.temperature[index]}
         />
       ))}
+    </div>
     </div>
   );
 };
