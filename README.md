@@ -2,6 +2,9 @@
 
 This Weather application allows users to view current weather conditions, weekly forecasts, and hourly updates for any location. It provides detailed information such as temperature, humidity, sunrise and sunset times, and more.
 
+- Application can be accessed in this below URL 
+https://sreevani10.github.io/weather-dashboard/
+
 ## Features
 
 - Search Functionality: Users can search for any location using an integrated search box.
