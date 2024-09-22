@@ -3,18 +3,27 @@
   gap: 20px;
 }
 
-.season {
+.season , .names {
   color: rgb(118, 157, 249);
-  margin-top: 8px;
+  font-size: 20px;
+  font-weight: bold;
 }
 .hourlyforecast {
   display: flex;
   gap: 20px;
   max-width: 500px;
   overflow-x: scroll;
+  padding-bottom: 10px;
 }
 
 .forecast-report {
   display: flex;
   flex-direction: column;
+}
+
+.names{
+  margin: 0;
+  text-align: center;
+  
+  
 }
