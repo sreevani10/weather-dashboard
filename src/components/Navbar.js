@@ -4,7 +4,7 @@ import "../styles/Navbar.css";
 
 const Navbar = ({ setLocation, setAddress }) => {
   const [inputValue, setInputValue] = useState("");
-
+  
   const handleChange = (input) => {
     setInputValue(input);
   };
@@ -16,7 +16,7 @@ const Navbar = ({ setLocation, setAddress }) => {
   return (
     <div className="container">
       <SearchBox
-        accessToken="API_KEY"
+        accessToken={process.env.REACT_APP_API_KEY}
         options={{
           language: "en",
           country: "IND",
