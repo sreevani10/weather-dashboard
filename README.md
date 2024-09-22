@@ -6,6 +6,7 @@ This Weather application allows users to view current weather conditions, weekly
 
 - Search Functionality: Users can search for any location using an integrated search box.
 - Current Weather: Displays the current temperature, humidity, and weather conditions for the selected location.
+- Current Weather: Displays the current temperature, humidity, and weather conditions for the selected location.
 - Weekly Forecast: Shows the maximum temperature and weather conditions for the upcoming week.
 - Hourly Forecast: Provides detailed temperature readings for each hour of the current day.
 
@@ -40,9 +41,16 @@ This Weather application allows users to view current weather conditions, weekly
 - Use the search box at the top of the page to enter a city or location.
 - Select a location from the dropdown to see its weather information.
 - The application will display the current weather, weekly forecast, and hourly forecast for the selected location.
+- Use the search box at the top of the page to enter a city or location.
+- Select a location from the dropdown to see its weather information.
+- The application will display the current weather, weekly forecast, and hourly forecast for the selected location.
 
 ## Screenshots
 
 ![alt text](https://github.com/sreevani10/weather-dashboard/blob/main/public/screenshots/WeatherDashboard_HomeScreen.png)
 <br/>
 ![alt text](https://github.com/sreevani10/weather-dashboard/blob/main/public/screenshots/WeatherDashboard_SearchLocationScreen.png)
+
+# Video
+
+![Watch the video](https://github.com/sreevani10/weather-dashboard/blob/main/public/screenshots/WeatherDashboardVideo.mp4)
